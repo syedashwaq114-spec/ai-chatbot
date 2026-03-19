@@ -3,9 +3,12 @@ from openai import OpenAI
 
 st.title("AI Chatbot (Free Version) 🤖")
 
+import os
+
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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"
+    api_key=os.getenv("OPENROUTER_API_KEY")
+    
 )
 
 if "messages" not in st.session_state:
